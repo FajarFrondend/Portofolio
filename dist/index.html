@@ -1,0 +1,387 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./style.css" rel="stylesheet">
+  <!-- npx tailwindcss -i ./src/input.css -o ./src/output.css --watch -->
+</head>
+<body>
+  <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+      <span class="sr-only">Open sidebar</span>
+      <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+      <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+      </svg>
+  </button>  
+  <main class="bg-gray-300 flex md:flex-row flex-col h-full">
+    <aside class="md:w-1/12 p-2">
+        <nav class="bg-gray-800 z-50 m-2 transform fixed text-white font-medium text-sm p-2 flex flex-col justify-between items-center h-full rounded-xl top-0 left-0 transition-transform -translate-x-full sm:translate-x-0" id="default-sidebar" aria-label="Sidebar">
+            <a class="mt-4" href="/"><svg fill="#000000" class="sticky w-10 bg-white rounded-full p-2" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M 28.0117 27.3672 C 33.0508 27.3672 37.3867 22.8672 37.3867 17.0078 C 37.3867 11.2187 33.0274 6.9297 28.0117 6.9297 C 22.9961 6.9297 18.6367 11.3125 18.6367 17.0547 C 18.6367 22.8672 22.9961 27.3672 28.0117 27.3672 Z M 13.2930 49.0703 L 42.7305 49.0703 C 46.4101 49.0703 47.7226 48.0156 47.7226 45.9531 C 47.7226 39.9062 40.1523 31.5625 28.0117 31.5625 C 15.8477 31.5625 8.2774 39.9062 8.2774 45.9531 C 8.2774 48.0156 9.5898 49.0703 13.2930 49.0703 Z"></path></g></svg></a>
+            <ul class="mb-auto ">
+                <li class="my-4">
+                    <a href="#home">
+                        <svg viewBox="0 -0.5 25 25" class="w-10" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M7.627 7.07343L10.359 5.55343C11.6913 4.81552 13.3097 4.81552 14.642 5.55343L17.374 7.07343C18.6778 7.78618 19.4919 9.15054 19.5 10.6364V14.8184C19.498 15.9628 19.0193 17.0546 18.179 17.8314C17.3679 18.5863 16.3 19.0043 15.192 19.0004H9.808C8.7 19.0043 7.63206 18.5863 6.821 17.8314C5.98068 17.0546 5.502 15.9628 5.5 14.8184V10.6364C5.50829 9.15033 6.32281 7.78591 7.627 7.07343Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M10.167 19.0005V17.6005C10.167 16.3117 11.2117 15.267 12.5005 15.267C13.7892 15.267 14.834 16.3117 14.834 17.6005V19.0005" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                        <span class="md:hidden">Home</span>
+                    </a>
+                </li>
+                <li class="my-4">
+                    <a href="#project">
+                        <svg viewBox="0 -0.5 25 25" class="w-10" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M18.507 19.853V6.034C18.5116 5.49905 18.3034 4.98422 17.9283 4.60277C17.5532 4.22131 17.042 4.00449 16.507 4H8.50705C7.9721 4.00449 7.46085 4.22131 7.08577 4.60277C6.7107 4.98422 6.50252 5.49905 6.50705 6.034V19.853C6.45951 20.252 6.65541 20.6407 7.00441 20.8399C7.35342 21.039 7.78773 21.0099 8.10705 20.766L11.907 17.485C12.2496 17.1758 12.7705 17.1758 13.113 17.485L16.9071 20.767C17.2265 21.0111 17.6611 21.0402 18.0102 20.8407C18.3593 20.6413 18.5551 20.2522 18.507 19.853Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                        <span class="md:hidden">Project</span>
+                    </a>
+                </li>
+                <li class="my-4">
+                    <a href="#skill">
+                        <svg viewBox="0 -0.5 25 25" class="w-10" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7V17C3.5 18.1046 4.39543 19 5.5 19H19.5C20.6046 19 21.5 18.1046 21.5 17V7C21.5 5.89543 20.6046 5 19.5 5H5.5C4.39543 5 3.5 5.89543 3.5 7Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M15.5 10H18.5" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> <path d="M15.5 13H18.5" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 10C11.5 11.1046 10.6046 12 9.5 12C8.39543 12 7.5 11.1046 7.5 10C7.5 8.89543 8.39543 8 9.5 8C10.0304 8 10.5391 8.21071 10.9142 8.58579C11.2893 8.96086 11.5 9.46957 11.5 10Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M5.5 16C8.283 12.863 11.552 13.849 13.5 16" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>
+                        <span class="md:hidden">Skills</span>
+                    </a>
+                </li>
+            </ul>
+            <a href="" class="border-2 border-white p-2 rounded-lg mb-4">Hubungi</a>
+        </nav>
+    </aside>
+    <section class="md:w-11/12 ">
+        <div class="flex md:flex-row flex-col w-full">
+            <div class="md:w-1/2 "id="home">
+                <div class="bg-white p-4 mt-16 mx-3 rounded-lg flex md:flex-row flex-col-reverse">
+                    <article class="md:w-[70%] font-sans">
+                        <h1 class="text-xs font-medium">Haii nama Saya</h1>
+                        <h2 class="text-xl truncate font-bold">MUHAMMAD FAJAR KURNIAWAN</h2>
+                        <p class="text-xs mb-4">saya <span class="font-semibold">muhammad fajar kurniawan</span>, seorang front-end developer dengan pengalaman lebih dari 2 tahun dalam membangun dan mengoptimalkan antarmuka web</p>
+                        <a href="" class="border-2 border-black p-2 rounded-xl">Lihat pengalaman</a>
+                    </article>
+                    <img src="../src/img/profile.png" class="md:mt-[-4rem] mt-[-3rem] md:w-auto w-52 md:ml-0 ml-[-2rem]" alt="">
+                </div>
+    
+                <div class="flex md:flex-row flex-col items-center">
+                    <div id="carousel" class="md:w-[70%] w-[95%] flex overflow-hidden relative mx-3 mt-4">
+                        <div class="flex w-full  transition-transform duration-500" style="transform: translateX(0%);">
+                            <div class="carousel-item bg-white flex-shrink-0 w-full flex items-center gap-2 p-2 rounded-lg">
+                                <span>
+                                    <svg viewBox="0 0 24 24" class="w-7 bg-white p-1 border border-black rounded-xl" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2 9C2 7.89543 2.89543 7 4 7H20C21.1046 7 22 7.89543 22 9V20C22 21.1046 21.1046 22 20 22H4C2.89543 22 2 21.1046 2 20V9Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M16 7V4C16 2.89543 15.1046 2 14 2H10C8.89543 2 8 2.89543 8 4V7" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M22 12L12.3922 13.9216C12.1333 13.9733 11.8667 13.9733 11.6078 13.9216L2 12" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </span>
+                                <article>
+                                    <h1 class="font-medium">Pengalaman Kerja</h1>
+                                    <p class="text-xs">Front-End Developer at PT. BerkahAchmadBersaudara</p>
+                                    <p class="font-medium text-xs">2023 - sekarang</p>
+                                </article>
+                            </div>
+                            
+                            <div class="carousel-item bg-white flex-shrink-0 w-full flex items-center gap-2 p-2 rounded-lg">
+                                <span>
+                                    <svg viewBox="0 0 24 24" class="w-7 bg-white p-1 border border-black rounded-xl" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2 9C2 7.89543 2.89543 7 4 7H20C21.1046 7 22 7.89543 22 9V20C22 21.1046 21.1046 22 20 22H4C2.89543 22 2 21.1046 2 20V9Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M16 7V4C16 2.89543 15.1046 2 14 2H10C8.89543 2 8 2.89543 8 4V7" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M22 12L12.3922 13.9216C12.1333 13.9733 11.8667 13.9733 11.6078 13.9216L2 12" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </span>
+                                <article>
+                                    <h1 class="font-medium">Pengalaman Kerja</h1>
+                                    <p class="text-xs">Front-end Developer In PT. Andhara Karya Global</p>
+                                    <p class="font-medium text-xs">2023 - sekarang</p>
+                                </article>
+                            </div>
+    
+                            <div class="carousel-item bg-white flex-shrink-0 w-full flex items-center gap-2 p-2 rounded-lg">
+                                <span>
+                                    <svg viewBox="0 0 24 24" class="w-7 bg-white p-1 border border-black rounded-xl" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2 9C2 7.89543 2.89543 7 4 7H20C21.1046 7 22 7.89543 22 9V20C22 21.1046 21.1046 22 20 22H4C2.89543 22 2 21.1046 2 20V9Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M16 7V4C16 2.89543 15.1046 2 14 2H10C8.89543 2 8 2.89543 8 4V7" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M22 12L12.3922 13.9216C12.1333 13.9733 11.8667 13.9733 11.6078 13.9216L2 12" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </span>
+                                <article>
+                                    <h1 class="font-medium">Pengalaman Kerja</h1>
+                                    <p class="text-xs">Front-end Developer In PT.Beepegian(Development)</p>
+                                    <p class="font-medium text-xs">2024 - sekarang</p>
+                                </article>
+                            </div>
+    
+                            <div class="carousel-item bg-white flex-shrink-0 w-full flex items-center gap-2 p-2 rounded-lg">
+                                <span>
+                                    <svg viewBox="0 0 24 24" class="w-7 bg-white p-1 border border-black rounded-xl" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2 9C2 7.89543 2.89543 7 4 7H20C21.1046 7 22 7.89543 22 9V20C22 21.1046 21.1046 22 20 22H4C2.89543 22 2 21.1046 2 20V9Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M16 7V4C16 2.89543 15.1046 2 14 2H10C8.89543 2 8 2.89543 8 4V7" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M22 12L12.3922 13.9216C12.1333 13.9733 11.8667 13.9733 11.6078 13.9216L2 12" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </span>
+                                <article>
+                                    <h1 class="font-medium">Pengalaman Kerja</h1>
+                                    <p class="text-xs">Colaboration with Backend-Developer(Django)</p>
+                                    <p class="font-medium text-xs">2024 - sekarang</p>
+                                </article>
+                            </div>
+    
+                            <div class="carousel-item bg-white flex-shrink-0 w-full flex items-center gap-2 p-2 rounded-lg">
+                                <span>
+                                    <svg viewBox="0 0 24 24" class="w-7 bg-white p-1 border border-black rounded-xl" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2 9C2 7.89543 2.89543 7 4 7H20C21.1046 7 22 7.89543 22 9V20C22 21.1046 21.1046 22 20 22H4C2.89543 22 2 21.1046 2 20V9Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M16 7V4C16 2.89543 15.1046 2 14 2H10C8.89543 2 8 2.89543 8 4V7" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M22 12L12.3922 13.9216C12.1333 13.9733 11.8667 13.9733 11.6078 13.9216L2 12" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </span>
+                                <article>
+                                    <h1 class="font-medium">Pengalaman Kerja</h1>
+                                    <p class="text-xs">Design website Beepegian <span class="font-medium">UI/UX</span></p>
+                                    <p class="font-medium text-xs">2024 - sekarang</p>
+                                </article>
+                            </div>
+    
+                            <div class="carousel-item bg-white flex-shrink-0 w-full flex items-center gap-2 p-2 rounded-lg">
+                                <span>
+                                    <svg viewBox="0 0 24 24" class="w-7 bg-white p-1 border border-black rounded-xl" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2 9C2 7.89543 2.89543 7 4 7H20C21.1046 7 22 7.89543 22 9V20C22 21.1046 21.1046 22 20 22H4C2.89543 22 2 21.1046 2 20V9Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M16 7V4C16 2.89543 15.1046 2 14 2H10C8.89543 2 8 2.89543 8 4V7" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M22 12L12.3922 13.9216C12.1333 13.9733 11.8667 13.9733 11.6078 13.9216L2 12" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </span>
+                                <article>
+                                    <h1 class="font-medium">Pengalaman Kerja</h1>
+                                    <p class="text-xs">Design website dashboard & convert to website with Vue js</p>
+                                    <p class="font-medium text-xs">2024 - sekarang</p>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-[15%] w-1/2 md:mt-0 mt-3 flex flex-row justify-between mx-3">
+                        <button id="carousel-trigger-prev">
+                            <svg viewBox="0 0 24 24" class="md:w-10 w-7 p-1 rotate-180 border-2 border-black rounded-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </button>
+                        <button id="carousel-trigger-next">
+                            <svg viewBox="0 0 24 24" class="md:w-10 w-7 p-1 border-2 border-black rounded-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+    
+                <h1 class="mx-3 mt-4 font-sans font-medium">Pelatihan Mandiri</h1>
+                <div class="mx-3">
+                    <div class="bg-white p-4 mt-2 w-full rounded-lg flex flex-row gap-2 items-center">
+                        <span>
+                            <svg class="w-10 p-2 border-black border rounded-md" xmlns="http://www.w3.org/2000/svg"xmlns:xlink="http://www.w3.org/1999/xlink"viewBox="0 0 700.08435 482.89237"><path id="path1" transform="translate(0,-569.46988)" style="fill:#000" d="m 117.51293,1051.6318 c -12.14837,-2.9002 -29.728148,-18.1522 -49.221868,-42.7042 c -39.570999,-49.83893 -61.0574994,-105.73952 -67.38493937,-175.31253 c -1.21782,-13.3906 -1.20559,-47.2689 0.0216,-59.6663 c 5.78590997,-58.45296 26.23995037,-108.79162 63.77079937,-156.94389 c 11.49299,-14.74558 30.54062,-34.06267 39.663438,-40.22459 c 12.90812,-8.71862 21.03329,-9.42362 28.83032,-2.50149 c 3.18001,2.82319 3.91138,4.13656 4.31868,7.75537 c 0.7669,6.81375 -2.72585,12.13801 -18.96746,28.91356 c -22.696898,23.44307 -33.167868,36.49307 -44.766288,55.79234 c -26.338069,43.82543 -37.608569,89.91434 -35.992979,147.1875 c 0.86072,30.51293 4.12574,53.0042 11.32601,78.01991 c 6.48504,22.53075 14.26864,40.69688 25.924939,60.50619 c 11.70369,19.8898 21.53849,32.4739 41.204948,52.72393 c 17.25351,17.7655 21.53909,23.9358 21.53909,31.0118 c 0,7.0391 -4.96843,13.4053 -11.98224,15.3532 c -3.87451,1.0761 -4.13811,1.0789 -8.284,0.089 z m 455.44089,0.2665 c -3.6719,-0.7795 -10.2381,-7.8414 -10.9785,-11.8072 c -1.1931,-6.3904 2.6087,-12.0821 20.332,-30.4391 c 8.7214,-9.0333 19.4526,-20.90733 23.8469,-26.38683 c 32.1524,-40.09154 50.0156,-84.70127 54.7815,-136.80559 c 1.4691,-16.06232 0.7096,-57.4481 -1.3391,-72.96716 c -4.2915,-32.50699 -12.2125,-59.101 -25.932,-87.06485 c -13.128,-26.75819 -26.7099,-45.73656 -49.6485,-69.375 c -15.4037,-15.87371 -19.9446,-21.67017 -21.493,-27.43577 c -1.5177,-5.65161 -0.4267,-9.8484 3.8122,-14.66398 c 5.8143,-6.60538 12.4561,-7.1946 22.8501,-2.02712 c 12.5814,6.25493 28.8861,22.58937 47.8125,47.89962 c 38.0781,50.92197 57.7171,106.94211 62.4372,178.10225 c 4.0104,60.46144 -10.6568,121.66332 -41.3038,172.3482 c -21.1547,34.98623 -53.4295,70.83673 -70.6155,78.43883 c -4.4918,1.987 -10.9367,2.9534 -14.562,2.1837 z m -380.08337,-36.8677 c -10.28745,-3.1184 -16.25136,-13.4004 -13.77065,-23.74113 c 1.53405,-6.3947 7.95351,-12.9693 14.1986,-14.5418 c 6.29118,-1.5842 331.73282,-1.5842 338.02402,0 c 6.4375,1.6209 12.762,8.2164 14.1687,14.7756 c 1.8436,8.59633 -2.0197,17.39503 -9.5253,21.69413 l -3.9679,2.2727 l -168.28125,0.159 c -92.55469,0.088 -169.43548,-0.1909 -170.84622,-0.6185 z m 128.18997,-79.10931 c -31.25226,-11.36715 -57.25414,-33.51988 -70.56464,-60.11872 c -7.39978,-14.78724 -11.69506,-32.69699 -11.69168,-48.75 c 0.005,-21.70289 8.49132,-42.38356 34.34641,-83.69612 c 19.25748,-30.77058 22.53856,-36.37804 28.2009,-48.19613 c 7.53515,-15.72687 10.01962,-25.06764 10.17751,-38.264 c 0.15089,-12.61133 -1.7391,-20.09344 -7.5478,-29.88024 c -4.12329,-6.94714 -13.3994,-17.40446 -17.16656,-19.35253 c -6.13981,-3.17502 -7.41241,-7.48767 -3.05249,-10.3444 c 6.89544,-4.51807 25.73535,-1.65272 43.04416,6.54654 c 19.58504,9.27752 34.01993,22.59896 43.41986,40.07061 c 7.2448,13.46592 10.1658,23.78505 15.07964,53.27252 c 5.45287,32.72211 10.85838,43.10388 21.78902,41.84779 c 5.79215,-0.66561 9.40698,-2.86376 11.84605,-7.20349 c 3.88524,-6.91287 2.21986,-16.37519 -5.638,-32.03379 c -6.42005,-12.79345 -6.0227,-16.65931 1.50762,-14.66788 c 3.90047,1.03149 16.5567,11.36919 25.31937,20.68104 c 21.92392,23.29795 32.83524,44.46488 38.0824,73.87633 c 2.75216,15.42644 2.98126,41.00657 0.48698,54.375 c -3.14675,16.86545 -9.52427,32.78449 -18.58816,46.39825 c -10.10669,15.18002 -31.19068,34.38621 -46.51897,42.37585 c -6.92209,3.60805 -9.32469,3.82678 -12.71769,1.15785 c -4.22027,-3.31967 -3.32896,-5.62767 6.0003,-15.53749 c 14.01697,-14.88926 21.17338,-25.47392 25.32527,-37.45728 c 6.40578,-18.48865 3.21723,-44.26491 -7.50796,-60.69426 c -4.44225,-6.80483 -10.95335,-12.80542 -13.89487,-12.80542 c -1.6103,0 -1.34313,2.12472 1.64246,13.06159 c 1.04617,3.83232 1.90212,8.51603 1.90212,10.40824 c 0,10.00778 -14.12604,17.26255 -26.56914,13.64525 c -10.11201,-2.93965 -14.56941,-12.11029 -13.23012,-27.21961 c 0.41387,-4.66907 0.78411,-13.15351 0.82275,-18.8543 c 0.0682,-10.05201 -0.0289,-10.56052 -3.21099,-16.83594 c -6.2022,-12.2312 -20.54678,-24.83023 -28.27035,-24.83023 c -3.33075,0 -3.60465,0.20129 -3.60465,2.64908 c 0,1.64378 0.92404,3.51158 2.43498,4.92188 c 8.00106,7.46811 9.50696,22.7712 3.57025,36.28131 c -3.66922,8.35 -7.80677,13.07915 -21.93727,25.07385 c -18.59248,15.78227 -24.58362,23.29724 -28.29903,35.49682 c -1.71871,5.64339 -1.89614,7.93993 -1.4124,18.28125 c 0.81216,17.36174 4.35055,28.87034 12.62068,41.04864 c 6.34961,9.35021 13.78457,15.28248 23.88216,19.05527 c 4.85612,1.81441 5.39063,2.28304 5.39063,4.72627 c 0,2.83211 -2.15357,4.69364 -5.329,4.60634 c -0.93624,-0.026 -5.49913,-1.42784 -10.13975,-3.11574 z"/></svg>
+                        </span>
+                        <article>
+                            <h1>Free Code Camp - Front End Development Libraries</h1>
+                            <div class="flex flex-row gap-2">
+                                <span class="flex gap-1 items-center">
+                                    <svg viewBox="0 0 24 24" class="w-5" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M5.926 20.574a7.26 7.26 0 0 0 3.039 1.511c.107.035.179-.105.107-.175-2.395-2.285-1.079-4.758-.107-5.873.693-.796 1.68-2.107 1.608-3.865 0-.176.18-.317.322-.211 1.359.703 2.288 2.25 2.538 3.515.394-.386.537-.984.537-1.511 0-.176.214-.317.393-.176 1.287 1.16 3.503 5.097-.072 8.19-.071.071 0 .212.072.177a8.761 8.761 0 0 0 3.003-1.442c5.827-4.5 2.037-12.48-.43-15.116-.321-.317-.893-.106-.893.351-.036.95-.322 2.004-1.072 2.707-.572-2.39-2.478-5.105-5.195-6.441-.357-.176-.786.105-.75.492.07 3.27-2.063 5.352-3.922 8.059-1.645 2.425-2.717 6.89.822 9.808z" fill="#000000"></path></g></svg>
+                                    <h1 class="text-xs">100%</h1>
+                                </span>
+                                <span class="flex gap-1 items-center">
+                                    <svg viewBox="0 0 24 24" class="w-5" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 7V12L14.5 10.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                                    <h1 class="text-xs">1 week</h1>
+                                </span>
+                            </div>
+                        </article>
+                    </div>
+    
+                    <div class="bg-white p-4 mt-2 w-full rounded-lg flex flex-row gap-2 items-center">
+                        <span class="p-2 px-4 border-black border rounded-md"> 
+                            <svg class="w-3" viewBox="0 0 412.77 799.91" xmlns="http://www.w3.org/2000/svg"><path d="M412.74 238.2l-206.4-119.1L0 238.2V119.1L206.37 0l206.4 119.1v119.1z" fill="#a435f0"/><path d="M0 338.22h108.11v262.54c0 67.83 50.67 100.9 98.26 100.9 48 0 98.3-33.95 98.3-101.81V338.22h108.1v268.8c0 62.48-19.65 110.7-58.96 143.76-39.33 33.04-88.45 49.13-148.35 49.13-59.84 0-108.99-16.06-147.38-49.13C19.65 717.75 0 671.32 0 609.69z"/></svg>
+                        </span>
+                        <article>
+                            <h1>Udemy - Build Web Apps with Vue JS 3 & Firebase</h1>
+                            <div class="flex flex-row gap-2">
+                                <span class="flex gap-1 items-center">
+                                    <svg viewBox="0 0 24 24" class="w-5" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M5.926 20.574a7.26 7.26 0 0 0 3.039 1.511c.107.035.179-.105.107-.175-2.395-2.285-1.079-4.758-.107-5.873.693-.796 1.68-2.107 1.608-3.865 0-.176.18-.317.322-.211 1.359.703 2.288 2.25 2.538 3.515.394-.386.537-.984.537-1.511 0-.176.214-.317.393-.176 1.287 1.16 3.503 5.097-.072 8.19-.071.071 0 .212.072.177a8.761 8.761 0 0 0 3.003-1.442c5.827-4.5 2.037-12.48-.43-15.116-.321-.317-.893-.106-.893.351-.036.95-.322 2.004-1.072 2.707-.572-2.39-2.478-5.105-5.195-6.441-.357-.176-.786.105-.75.492.07 3.27-2.063 5.352-3.922 8.059-1.645 2.425-2.717 6.89.822 9.808z" fill="#000000"></path></g></svg>
+                                    <h1 class="text-xs">60%</h1>
+                                </span>
+                                <span class="flex gap-1 items-center">
+                                    <svg viewBox="0 0 24 24" class="w-5" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 7V12L14.5 10.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                                    <h1 class="text-xs">1 month</h1>
+                                </span>
+                            </div>
+                        </article>
+                    </div>
+    
+                    <div class="bg-white p-4 mt-2 w-full rounded-lg flex flex-row gap-2 items-center">
+                        <span class="p-2 px-4 border-black border rounded-md"> 
+                            <svg class="w-3" viewBox="0 0 412.77 799.91" xmlns="http://www.w3.org/2000/svg"><path d="M412.74 238.2l-206.4-119.1L0 238.2V119.1L206.37 0l206.4 119.1v119.1z" fill="#a435f0"/><path d="M0 338.22h108.11v262.54c0 67.83 50.67 100.9 98.26 100.9 48 0 98.3-33.95 98.3-101.81V338.22h108.1v268.8c0 62.48-19.65 110.7-58.96 143.76-39.33 33.04-88.45 49.13-148.35 49.13-59.84 0-108.99-16.06-147.38-49.13C19.65 717.75 0 671.32 0 609.69z"/></svg>
+                        </span>
+                        <article>
+                            <h1>Udemy - Adobe XD Masterclass: Learn Web Design UI & UX Design</h1>
+                            <div class="flex flex-row gap-2">
+                                <span class="flex gap-1 items-center">
+                                    <svg viewBox="0 0 24 24" class="w-5" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M5.926 20.574a7.26 7.26 0 0 0 3.039 1.511c.107.035.179-.105.107-.175-2.395-2.285-1.079-4.758-.107-5.873.693-.796 1.68-2.107 1.608-3.865 0-.176.18-.317.322-.211 1.359.703 2.288 2.25 2.538 3.515.394-.386.537-.984.537-1.511 0-.176.214-.317.393-.176 1.287 1.16 3.503 5.097-.072 8.19-.071.071 0 .212.072.177a8.761 8.761 0 0 0 3.003-1.442c5.827-4.5 2.037-12.48-.43-15.116-.321-.317-.893-.106-.893.351-.036.95-.322 2.004-1.072 2.707-.572-2.39-2.478-5.105-5.195-6.441-.357-.176-.786.105-.75.492.07 3.27-2.063 5.352-3.922 8.059-1.645 2.425-2.717 6.89.822 9.808z" fill="#000000"></path></g></svg>
+                                    <h1 class="text-xs">100%</h1>
+                                </span>
+                                <span class="flex gap-1 items-center">
+                                    <svg viewBox="0 0 24 24" class="w-5" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 7V12L14.5 10.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                                    <h1 class="text-xs">2 week</h1>
+                                </span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2 bg-gray-800 pb-8 m-3 h-full rounded-lg" id="skill">
+                <div class="bg-white p-1 rounded-lg my-2 w-[20%] mx-auto"></div>
+                <div class="bg-white p-2 rounded-xl my-3 mx-3 flex flex-row items-center gap-2">
+                    <img src="../src/img/skil.png" class="w-14" alt="">
+                    <h1 class="mx-3 font-sans font-medium text-xl my-2">Keahlian</h1>
+                </div>
+                <div class="mx-3 items-start flex flex-row gap-2 bg-white p-2 rounded-lg">
+                    <span class="p-2  rounded-lg w-fit">
+                        <?xml version="1.0" encoding="UTF-8"?>
+                        <svg version="1.1" viewBox="0 0 2048 1776" class="w-10" xmlns="http://www.w3.org/2000/svg"><path transform="translate(0)" d="m0 0h793l9 19 14 24 10 18 14 24 15 26 9 16 13 22 12 21 14 24 14 25 10 17 9 16 10 17 15 26 9 15 12 21 9 15 14 24 6 10 6 11 6 6 4-2 18-30 9-16 16-27 8-14 9-14 14-25 14-24 8-14 14-24 24-42 9-15 8-14 13-23 9-15 10-18 8-13 11-20 11-19 7-12 7-16h793l-1 5-10 15-12 22-11 18-12 21-14 24-10 18-9 15-13 23-10 17-12 21-15 26-14 24-16 28-10 17-13 23-14 24-12 21-14 24-12 21-15 26-11 19-30 52-14 24-12 21-14 24-13 23-11 19-15 26-14 24-16 28-10 17-16 28-11 19-15 26-11 19-14 24-13 23-10 17-11 19-14 24-13 23-14 24-12 21-14 24-16 28-14 24-9 16-13 22-24 42-15 26-14 24-15 26-11 19-15 26-14 24-15 26-14 24-13 23-14 24-12 21-14 24-16 28-14 24-15 26-14 24-14 25-14 24-15 26-11 19-14 24-12 21-11 19-8 13-16 28-14 25-11 19-5 5-9-11-9-15-16-29-15-26-13-22-15-26-16-27-13-23-30-52-14-24-11-19-30-52-14-24-13-23-10-17-16-28-28-48-13-23-14-24-15-26-14-24-30-52-12-21-13-22-13-23-10-17-16-28-28-48-9-16-14-24-13-23-14-24-11-19-15-26-16-28-14-24-16-28-10-17-16-28-15-26-9-15-13-23-14-24-13-23-10-17-14-24-32-56-14-24-15-26-14-24-16-28-15-26-14-24-12-21-30-52-13-22-13-23-11-19-60-104-14-25-16-27-12-21-10-17-12-21-6-10-9-10z" fill="#40B486"/><path transform="translate(413)" d="m0 0h380l9 19 14 24 10 18 14 24 15 26 9 16 13 22 12 21 14 24 14 25 10 17 9 16 10 17 15 26 9 15 12 21 9 15 14 24 6 10 6 11 6 6 4-2 18-30 9-16 16-27 8-14 9-14 14-25 14-24 8-14 14-24 24-42 9-15 8-14 13-23 9-15 10-18 8-13 11-20 11-19 7-12 7-16h380l-1 6-14 26-9 15-6 11-9 16-13 23-15 26-9 15-11 20-7 11-6 11-14 24-13 23-8 14-9 16-13 22-16 27-13 23-14 24-15 27-12 20-15 26-12 21-15 26-8 14-6 10-10 17-8 13-6 11-7 12-6 11-10 17-11 19-15 25-13 23-18 32-12 20-8 13-5 9-9 16-8 14-2 4h-2l-2 7-7 11-6 12h-2l-1 5-6 9-9 16-8 14-7 11-4 8-8 13-7 14h-2l-1 4-12 22-6 9-20 34-1 3h-2l-1 4-3 6h-2l-1 4-9 16-12 19-9 16-4 5-5 9-12 18-8 11-4 1-6-9-13-22-6-12-10-17-9-14-9-15-16-28-9-16-9-15-5-9-6-10-5-9-14-24-9-16-5-9-6-10-8-14-21-35-6-11-6-10-6-11-6-10-5-9-6-11-10-17-6-11-7-10-8-16-6-9-5-10-14-24-14-25-8-14-11-18-6-10-12-22-17-29-11-19-8-14-10-17-6-10-4-8-14-24-12-21-11-18-7-12-6-11-13-23-9-14-6-12-12-20-18-32-14-24-7-13-10-16-6-11-9-16-6-9-6-11-6-10-6-11-9-15-12-21-6-10-10-17-6-11-9-17-10-19z" fill="#374B62"/><path transform="translate(438,46)" d="m0 0h2l6 12v2h2l10 18 3 2 2 5 4 6 2 1 2 8h2l3 6 2 6 4 2 1 4h2l2 7 8 12-1 3h2l3 6 2 1 5 12 5 5v2h2l2 9 2 1 2 6h2l2 5 2 3v3h2v2h2l4 8 6 9v3h2l1 7 3 1 2 5 2 1 3 6 3 5v2h2l4 9v2h2l1 5h2l-1 4 4 1 2 7 3 1 2 6 5 5 2 6 7 12v4h2l5 7 2 5v3h2l4 7 10 17 3 8 2 1v2h2l7 14v3h2l4 5 5 10 2 1 1 7h2l2 5v3h2l2 5h2l4 9 3 5 5 9v3h2v2h2l7 14 4 6 6 11 1 4h2l6 9 3 8 2 1v2h2l3 8 6 9v4h2v3h2l6 11 6 8 1 6h2l2 4 2 2 3 6 1 4 4 7 2 1v3h2l2 5v3l4 2v3l3 1 2 4 2 3 2 6 3 2v2h2l2 4v3h2l2 5 4 6 4 7 3 3 7 14 6 11 3 4 4 7 8 13 6 12 1 3h2l4 6 4 8 2 1 2 8h2l2 5v3l4 2 2 7 5 6 6 12 6 10 8 15 4 6 1 4 5 5 5 11 5 7 2 7h2l1 4h2l2 5v3l4 2 2 5 4 8v4l4 2 7 14 6 8 2 7h2l1 7h2l2 3v3h2l7 15 4 4 9 17 3 5v2l2 1 5 10v2l3 1 1 5 3 1 2 7 5 7 2 6 3 3 4 10 4 5 7 11 3 8v3h2l4 6 2 9 5 9 6 13 3 1 3-3 5-9h2v-3h2l1-5h2l2-5 7-11 5-9 6-9 2-6h2l2-6h2l2-6 9-17 5-8 8-16 4-5 5-10 6-10h2l1-5 8-14 6-10 9-18h2l2-5 7-12 1-3h2l2-5 6-11 10-16 1-3h2l2-6 6-10 5-9 3-4 1-4h2l2-6 9-16 7-12 7-11 8-14 6-11 6-9 8-14 3-6 7-11 6-10 6-11 3-1 1-6 6-9 7-12 8-14 3-6h2l2-5 5-9 8-14 4-6 16-28 6-10 5-9 3-4 6-12 3-5 2-1 3-6 7-12 5-9 10-17 1-3 2-1 7-14 5-7 3-7h2l1-5 5-8h2l2-6 4-8h2l1-5 8-13 6-10 6-11 1-2h2l1-5 10-18 9-15 20-34 4-7 8-13 6-12 6-9 9-17 6-9 6-12 8-13 10-16 1 3-12 20-15 26-10 17-6 11-13 23-9 15-14 24-15 26-14 25-8 14-16 27-15 26-12 21-15 26-8 14-6 10-10 17-8 13-6 11-7 12-6 11-10 17-11 19-15 25-13 23-18 32-12 20-8 13-5 9-9 16-8 14-2 4h-2l-2 7-7 11-6 12h-2l-1 5-6 9-9 16-8 14-7 11-4 8-8 13-7 14h-2l-1 4-12 22-6 9-20 34-1 3h-2l-1 4-3 6h-2l-1 4-9 16-12 19-9 16-4 5-5 9-12 18-8 11-4 1-6-9-13-22-6-12-10-17-9-14-9-15-16-28-9-16-9-15-5-9-6-10-5-9-14-24-9-16-5-9-6-10-8-14-21-35-6-11-6-10-6-11-6-10-5-9-6-11-10-17-6-11-7-10-8-16-6-9-5-10-14-24-14-25-8-14-11-18-6-10-12-22-17-29-11-19-8-14-10-17-6-10-4-8-14-24-12-21-11-18-7-12-6-11-13-23-9-14-6-12-12-20-18-32-14-24-7-13-10-16-6-11-9-16-6-9-6-11-6-10-6-11-9-15-12-21-6-10-10-17-3-6z" fill="#3B6273"/><path transform="translate(441,54)" d="m0 0 4 5 12 21 9 15 12 21 6 9 4 8 7 12 20 34 9 16 5 7 8 16 12 20 10 18 9 16 8 13 8 14 6 11 6 10 15 26 6 11 9 15 13 22 13 23 6 9 7 14 10 17 8 14 10 17 16 27 7 13 8 13 6 11 7 12 8 14 14 24 13 23 10 17 6 11 12 21 6 9 6 12 10 16 5 10 8 13 6 11 16 28 11 19 18 30 5 9 4 7 7 12 6 11 11 19 4 7 6 10 6 11 8 13 6 11 9 15 6 11 8 14 8 13 10 16 10 17 7 14 11 18 2 3 4-1 14-20 9-14 4-7 8-13 5-9 7-11 8-13 5-10h2l1-4 3-6h2l1-4 10-18 6-10 6-9 6-11 6-10 5-10h2l2-7 3-4 6-11 6-10 6-11 21-36 5-8 1-3h2l1-4 6-11 6-10 2-5h2l1-4 18-32 8-13 8-14 9-15 10-18 10-17 8-14 6-11 12-20 22-38 4-7 10-17 6-10 6-11 11-19 8-13 16-28 13-23 14-24 17-29 14-24 15-27 14-24 11-19 12-20 26-46 15-26 11-18 4-7 1 2-9 16-6 11-10 17-14 25-9 15-8 15-9 14-5 9-8 14-14 24-10 19-8 13-14 25-9 14-6 11-8 14-7 12-6 11-3 6-8 14-10 17-3 5-22 38-5 9-8 14-12 22-9 14-3 6-10 17-6 11-4 8h-2l-2 6-9 16-5 10-8 13-6 11-2 4h-2l-3 9h-2l-2 6-5 7-3 6-3 5-6 11-5 9-4 7-5 9-6 11-6 10-1 3-2 1-7 14-3 5h-2l-1 5-1 2h-2l-2 6-3 6-5 8-7 13-9 16-6 10-3 7-2 4h-2l-2 7-8 13-6 11h-2l-2 5-4 8h-2v3h-2l-1 5-7 11-7 10-5 10h-2l-1 4-12 20h-2l-2 6-5 9h-2l-2 5-6 11-4 6-3 4-3 6-3 5h-2l-2 6-12 13-1 2h-5l-12-19-10-17-3-5-1-3h-2l-6-7-3-6-2-3v-3h-2l-3-5-3-2-6-11-7-12-3-3v-2h-2l-4-9-8-11-7-11-3-10-10-15-5-9-9-16-4-5-2-6-3-6-6-10-2-4-1-3-2-2-2-7-2-2-2-4-2-1v-3h-2l-2-6h-2l-6-16-4-5v-3l-4-2v-2l-2-1-5-10-1-3-3-3-6-10v-2l-2-1-3-7-3-6-5-5-3-5-5-13-2-2v-4h-2v-3h-2v-3l-4-1-5-10-4-10-2-1-3-7-5-7-5-10v-3h-2l-2-4-2-1-2-6-1-4-2-1-4-9-1-4h-2l-2-3v-3h-2l-2-5v-4l-2-1v-3h-2l-8-16h-2l-3-7-3-3-2-7-6-9-2-4-2-5h-2l-1-6h-2l-1-6h-2l-3-5-2-4-2-5-8-14v-3h-2l-6-8-4-9-2-6-6-10-5-7-3-4-2-7h-2v-5h-2v-2h-2l-5-10v-2h-2l-2-5-6-9-6-10-3-6-4-12h-2v-2h-2l-3-5-1-4-3-1-5-14-4-6v-2h-2l-7-10-3-7-1-4h-2l-4-9-5-7-2-5-5-9-4-5-3-10h-2l-3-7-1-5h-2l-2-5h-2l-6-9-4-8v-3l-3-1-3-7-7-10-8-15-5-10-2-2-1-5-3-2-1-5h-2l-6-11-5-11-6-11v-2h-3l-2-5h-2l-3-11-8-14-3-5v-2l-3-1-8-16-7-13-9-14-6-12-13-23-5-8z" fill="#3C9D7F"/><path transform="translate(1538,169)" d="m0 0 1 3-12 20-15 26-10 17-6 11-13 23-9 15-14 24-15 26-14 25-8 14-16 27-14 24h-2l1-5 1-2h2l1-5 5-8h2l2-6 4-8h2l1-5 8-13 6-10 6-11 1-2h2l1-5 10-18 9-15 20-34 4-7 8-13 6-12 6-9 9-17 6-9 6-12 8-13z" fill="#3C6374"/><path transform="translate(1058,342)" d="m0 0 1 4-5 10-3 7-6 12-4 12-6 10-7 6-5 1-5-4-13-23v-5h-2l-4-5-1-7 4 5 9 15 6 11 6 6 4-2 18-30 9-16z" fill="#3C6A75"/><path transform="translate(1254)" d="m0 0h8v7l-6 9-6 2-3 4v7l-8 5-2 5v6l-4 1v3l-3 3-3 6h-3l2-6 10-17 9-16 6-12z" fill="#3C6875"/><path transform="translate(878,158)" d="m0 0h4l11 19 15 26 12 21 13 23 2 5-5-5-9-14-8-14-5-9-13-23-7-11-2-2-3-7z" fill="#3C7878"/><path transform="translate(904,202)" d="m0 0h2l2 4 4 4 12 21 11 19-1 2-8-11-6-10-7-12-5-9z" fill="#3C6F76"/><path transform="translate(938,264)" d="m0 0 6 2 9 15 10 17-1 2-6-8-3-5-8-9-8-12z" fill="#3C6875"/><path transform="translate(2027)" d="m0 0h20l-1 5-5 3-7-1-1-2-5-3z" fill="#3C9F7F"/><path transform="translate(1105,262)" d="m0 0 1 2 2 1-2 6-4 5-2 6h-2l-1 3h-4l2-5 6-11z" fill="#3C6D76"/><path transform="translate(787)" d="m0 0h6l9 19v3l-7-8-1-2-3-1-4-8z" fill="#3B6272"/><path transform="translate(1077,310)" d="m0 0h1v7l-2 4-5 5-4 9-6 4 2-5 9-16z" fill="#3C7477"/><path transform="translate(1172,146)" d="m0 0 1 4-1 7-3 1v4l-3 1-2 6-3 1-1 3h-2l2-6 11-19z" fill="#3C7177"/><path transform="translate(1238,31)" d="m0 0 1 3-2 5v6l-4 1v3l-3 3-3 6h-3l2-6 10-17z" fill="#3C7277"/><path transform="translate(963,300)" d="m0 0 4 5 14 24-1 2-8-10-3-5-3-8-3-4z" fill="#3C7477"/><path transform="translate(878,158)" d="m0 0h4l11 19-1 2-7-9-7-11z" fill="#3CA180"/><path transform="translate(947,275)" d="m0 0 4 2 12 21-1 2-6-8-3-5-6-9z" fill="#3D967E"/><path transform="translate(854,111)" d="m0 0 3 3 11 20 2 5-5-5-7-12-4-9z" fill="#3C7978"/><path transform="translate(1247,19)" d="m0 0v3 7l-8 4 1-5 4-7z" fill="#3C6C76"/><path transform="translate(792,6)" d="m0 0 4 1 7 13-1 2-7-8-3-6z" fill="#3EA682"/><path transform="translate(873,151)" d="m0 0 5 2 3 3v2l-2 1 2 5-4-4-4-6z" fill="#3C6674"/><path transform="translate(1123,231)" d="m0 0 2 3-3 5-2 5-3 3h-2l2-5z" fill="#3D7C79"/><path transform="translate(809,37)" d="m0 0 5 2 3 6-1 2-6-5z" fill="#3C7C79"/><path transform="translate(998,360)" d="m0 0 4 5 4 7h-3l-4-5z" fill="#3C7778"/><path transform="translate(927,238)" d="m0 0 4 5 4 7-1 2-8-11z" fill="#3D7B79"/><path transform="translate(1164,163)" d="m0 0 1 4-1 2-3 1-1 3h-2l2-6z" fill="#3C6F76"/></svg>
+                    </span>
+                    <article>
+                        <h1 class="font-medium text-xl">Vue.js</h1>
+                        <p class="text-xs">Saya telah bekerja secara intensif dengan Vue.js dan Vue Router untuk membangun aplikasi web dinamis. Salah satu proyek yang saya banggakan adalah aplikasi perjalanan yang memungkinkan pengguna mencari dan memesan rute perjalanan. Dengan menggunakan Vue Router, saya mengimplementasikan Judul dinamis yang memungkinkan pengguna melihat detail produk berdasarkan parameter rute yang diambil dari API.</p>
+                    </article>
+                </div>
+                <div class="mx-3 items-start flex flex-row gap-2 mt-3 bg-white p-2 rounded-lg">
+                    <span class="p-2  rounded-lg w-fit">
+                        <?xml version="1.0" encoding="utf-8"?>
+                        <svg version="1.1" id="Layer_1" class="w-10" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 240 234" style="enable-background:new 0 0 240 234;" xml:space="preserve"><style type="text/css">	.st0{fill:#470137;}	.st1{fill:#FF61F6;}</style><g id="Layer_2_1_"><g id="Surfaces"><g id="UI_UX_Surface"><g id="Outline_no_shadow"><path class="st0" d="M42.5,0h155C221,0,240,19,240,42.5v149c0,23.5-19,42.5-42.5,42.5h-155C19,234,0,215,0,191.5v-149C0,19,19,0,42.5,0z"/></g></g></g><g id="Outlined_Mnemonics_Logos"><g id="Xd"><path class="st1" d="M126.2,61.5L96.2,111l32,52.5c0.2,0.4,0.3,0.8,0.2,1.2c-0.1,0.4-0.5,0.1-1.1,0.2h-22.9c-1.6,0-2.7-0.1-3.4-1.1c-2.1-4.2-4.3-8.3-6.4-12.5c-2.1-4.1-4.4-8.3-6.8-12.6c-2.4-4.3-4.8-8.6-7.2-13h-0.2c-2.1,4.3-4.4,8.6-6.7,12.9c-2.3,4.3-4.6,8.6-6.8,12.8c-2.3,4.2-4.6,8.5-6.9,12.6c-0.4,1-1.2,1.1-2.3,1.1H35.7c-0.4,0-0.7,0.2-0.7-0.3c-0.1-0.4,0-0.8,0.2-1.1l31.1-51L36,61.4c-0.3-0.4-0.4-0.8-0.2-1c0.2-0.3,0.6-0.4,1-0.4h22.7c0.5,0,1,0.1,1.4,0.2c0.4,0.2,0.7,0.5,1,0.9c1.9,4.3,4.1,8.6,6.4,12.9c2.4,4.3,4.7,8.5,7.2,12.7c2.4,4.2,4.6,8.4,6.7,12.7h0.2c2.1-4.4,4.3-8.7,6.5-12.9c2.2-4.2,4.5-8.4,6.8-12.6c2.3-4.2,4.5-8.5,6.7-12.6c0.1-0.4,0.3-0.8,0.6-1c0.4-0.2,0.8-0.3,1.3-0.2h21.1c0.5-0.1,1,0.2,1.1,0.7C126.6,60.9,126.4,61.3,126.2,61.5L126.2,61.5z"/><path class="st1" d="M172.4,167c-7.4,0.1-14.8-1.4-21.5-4.5c-6.3-2.9-11.5-7.7-15.1-13.6c-3.7-6.1-5.5-13.7-5.5-22.8c-0.1-7.4,1.8-14.7,5.5-21.1c3.8-6.5,9.3-11.9,15.9-15.5c7-3.9,15.4-5.8,25.3-5.8c0.5,0,1.2,0,2.1,0.1c0.9,0.1,1.9,0.1,3.1,0.2V52.4c0-0.7,0.3-1.1,1-1.1h20.3c0.5-0.1,0.9,0.3,1,0.7c0,0.1,0,0.2,0,0.2v95.2c0,1.8,0.1,3.8,0.2,6c0.2,2.1,0.3,4.1,0.4,5.8c0,0.7-0.3,1.3-1,1.6c-5.2,2.2-10.7,3.8-16.3,4.8C182.7,166.5,177.6,167,172.4,167z M182.2,147v-44c-0.9-0.2-1.8-0.4-2.7-0.5c-1.1-0.1-2.2-0.2-3.3-0.2c-3.9,0-7.8,0.8-11.3,2.6c-3.4,1.7-6.3,4.2-8.5,7.4c-2.2,3.2-3.3,7.5-3.3,12.7c-0.1,3.5,0.5,7,1.7,10.3c1,2.7,2.5,5.1,4.5,7.1c1.9,1.8,4.2,3.2,6.8,4c2.7,0.9,5.5,1.3,8.3,1.3c1.5,0,2.9-0.1,4.2-0.2C179.9,147.6,181,147.4,182.2,147z"/></g></g></g></svg>
+                    </span>
+                    <article>
+                        <h1 class="font-medium text-xl">Adobe XD</h1>
+                        <p class="text-xs">Saya memiliki pengalaman dalam merancang antarmuka pengguna (UI) yang intuitif dan pengalaman pengguna (UX) yang menarik menggunakan Adobe XD. Proses desain ini membantu saya mengembangkan prototipe interaktif yang memungkinkan klien dan tim untuk memahami dan menguji alur kerja aplikasi sebelum pengembangan dimulai.</p>
+                    </article>
+                </div>
+                <div class="mx-3 items-start flex flex-row gap-2 mt-3 bg-white p-2 rounded-lg">
+                    <span class="p-2  rounded-lg w-fit">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-10" fill="none" viewBox="0 0 54 33"><g clip-path="url(#prefix__clip0)"><path fill="#38bdf8" fill-rule="evenodd" d="M27 0c-7.2 0-11.7 3.6-13.5 10.8 2.7-3.6 5.85-4.95 9.45-4.05 2.054.513 3.522 2.004 5.147 3.653C30.744 13.09 33.808 16.2 40.5 16.2c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C36.756 3.11 33.692 0 27 0zM13.5 16.2C6.3 16.2 1.8 19.8 0 27c2.7-3.6 5.85-4.95 9.45-4.05 2.054.514 3.522 2.004 5.147 3.653C17.244 29.29 20.308 32.4 27 32.4c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C23.256 19.31 20.192 16.2 13.5 16.2z" clip-rule="evenodd"/></g><defs><clipPath id="prefix__clip0"><path fill="#fff" d="M0 0h54v32.4H0z"/></clipPath></defs></svg>
+                    </span>
+                    <article>
+                        <h1 class="font-medium text-xl">Tailwind css</h1>
+                        <p class="text-xs">Saya sangat menguasai Tailwind CSS, sebuah framework CSS utility-first yang memungkinkan saya untuk dengan cepat merancang dan mengimplementasikan desain yang konsisten dan efisien. Saya telah menggunakan Tailwind CSS dalam berbagai proyek untuk memastikan situs web tidak hanya terlihat menawan tetapi juga berkinerja optimal.</p>
+                    </article>
+                </div>
+                <div class="mx-3 items-start flex flex-row gap-2 mt-3 bg-white p-2 rounded-lg">
+                    <span class="p-2  rounded-lg w-fit">
+                        <svg viewBox="0 0 122.52 122.523" class="w-10" xmlns="http://www.w3.org/2000/svg"><g fill="#464342"><path d="m8.708 61.26c0 20.802 12.089 38.779 29.619 47.298l-25.069-68.686c-2.916 6.536-4.55 13.769-4.55 21.388z"/><path d="m96.74 58.608c0-6.495-2.333-10.993-4.334-14.494-2.664-4.329-5.161-7.995-5.161-12.324 0-4.831 3.664-9.328 8.825-9.328.233 0 .454.029.681.042-9.35-8.566-21.807-13.796-35.489-13.796-18.36 0-34.513 9.42-43.91 23.688 1.233.037 2.395.063 3.382.063 5.497 0 14.006-.667 14.006-.667 2.833-.167 3.167 3.994.337 4.329 0 0-2.847.335-6.015.501l19.138 56.925 11.501-34.493-8.188-22.434c-2.83-.166-5.511-.501-5.511-.501-2.832-.166-2.5-4.496.332-4.329 0 0 8.679.667 13.843.667 5.496 0 14.006-.667 14.006-.667 2.835-.167 3.168 3.994.337 4.329 0 0-2.853.335-6.015.501l18.992 56.494 5.242-17.517c2.272-7.269 4.001-12.49 4.001-16.989z"/><path d="m62.184 65.857-15.768 45.819c4.708 1.384 9.687 2.141 14.846 2.141 6.12 0 11.989-1.058 17.452-2.979-.141-.225-.269-.464-.374-.724z"/><path d="m107.376 36.046c.226 1.674.354 3.471.354 5.404 0 5.333-.996 11.328-3.996 18.824l-16.053 46.413c15.624-9.111 26.133-26.038 26.133-45.426.001-9.137-2.333-17.729-6.438-25.215z"/><path d="m61.262 0c-33.779 0-61.262 27.481-61.262 61.26 0 33.783 27.483 61.263 61.262 61.263 33.778 0 61.265-27.48 61.265-61.263-.001-33.779-27.487-61.26-61.265-61.26zm0 119.715c-32.23 0-58.453-26.223-58.453-58.455 0-32.23 26.222-58.451 58.453-58.451 32.229 0 58.45 26.221 58.45 58.451 0 32.232-26.221 58.455-58.45 58.455z"/></g></svg>
+                    </span>
+                    <article>
+                        <h1 class="font-medium text-xl">Wordpress</h1>
+                        <p class="text-xs">Saya juga memiliki pengalaman luas dalam mengelola dan mengoptimalkan situs web menggunakan WordPress. Dengan keahlian dalam mengedit dengan Elementor, saya mampu membuat perubahan dan menyesuaikan halaman web dengan cepat sesuai kebutuhan klien.</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+        <div class="mb-20" id="project">
+            <h1 class="text-xl font-medium mx-3  rounded-lg my-4 p-2 w-fit bg-white">Portofolio Saya</h1>
+            <div class="grid md:grid-cols-3 sm:grid-cols-1 gap-3">
+                <div class="mx-3">
+                    <img src="../src/img/bab.png" class="w-full rounded-t-lg" alt="">
+                    <div class="w-full bg-white p-2 rounded-b-lg">
+                        <h1 class="font-medium my-2">Building website PT.BerkahAchmadBersaudara</h1>
+                        <p class="text-xs mb-4">Ini adalah website yang saya buat menggunakan Elementor dan WordPress</p>
+                        <a href="https://berkahachmadtransindo.com/" target="_blank" class="text-xs border border-black p-2 rounded-lg my-4">Lihat Web</a>
+                    </div>
+                </div>
+                <div class="mx-3">
+                    <img src="../src/img/porto (1).png" class="w-full rounded-t-lg" alt="">
+                    <div class="w-full bg-white p-2 rounded-b-lg">
+                        <h1 class="font-medium my-2">Building website Lubnatrans</h1>
+                        <p class="text-xs mb-4">Ini adalah website yang saya buat menggunakan Elementor dan WordPress</p>
+                        <a href="https://lubnatrans.com/" target="_blank" class="text-xs border border-black p-2 rounded-lg my-4">Lihat Web</a>
+                    </div>
+                </div>
+                <div class="mx-3">
+                    <img src="../src/img/porto (2).png" class="w-full rounded-t-lg" alt="">
+                    <div class="w-full bg-white p-2 rounded-b-lg">
+                        <h1 class="font-medium my-2">Building website acamadinahtrans</h1>
+                        <p class="text-xs mb-4">Ini adalah website yang saya buat menggunakan Elementor dan WordPress</p>
+                        <a href="https://acamadinatrans.com/" target="_blank" class="text-xs border border-black p-2 rounded-lg my-4">Lihat Web</a>
+                    </div>
+                </div>
+                <div class="mx-3">
+                    <img src="../src/img/porto.png" class="w-full rounded-t-lg" alt="">
+                    <div class="w-full bg-white p-2 rounded-b-lg">
+                        <h1 class="font-medium my-2">Building UI UX dashboard Travel-apps</h1>
+                        <p class="text-xs mb-4">Ini adalah UI/UX yang saya buat menggunakan Adobe xd</p>
+                    </div>
+                </div>
+                <div class="mx-3">
+                    <img src="../src/img/porto (3).png" class="w-full rounded-t-lg" alt="">
+                    <div class="w-full bg-white p-2 rounded-b-lg">
+                        <h1 class="font-medium my-2">Building website Surya Transindo</h1>
+                        <p class="text-xs mb-4">Ini adalah website yang saya buat menggunakan Elementor dan WordPress</p>
+                        <a href="https://suryatransindo.com/" target="_blank" class="text-xs border border-black p-2 rounded-lg my-4">Lihat Web</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-900">
+    <h1>Terimakasih</h1>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const carousel = document.getElementById('carousel');
+        const itemsContainer = carousel.querySelector('.flex');
+        const items = carousel.getElementsByClassName('carousel-item');
+        const nextButton = document.getElementById('carousel-trigger-next');
+        const prevButton = document.getElementById('carousel-trigger-prev');
+        let currentIndex = 0;
+    
+        function showItem(index) {
+            const percentage = -index * 100;
+            itemsContainer.style.transform = `translateX(${percentage}%)`;
+        }
+    
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % items.length;
+            showItem(currentIndex);
+        });
+    
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            showItem(currentIndex);
+        });
+    
+        // Initialize the carousel by showing the first item
+        showItem(currentIndex);
+    });
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        const toggleButton = document.querySelector('[data-drawer-toggle="default-sidebar"]');
+        const sidebar = document.getElementById('default-sidebar');
+        
+        toggleButton.addEventListener('click', function (e) {
+            sidebar.classList.toggle('-translate-x-full');
+            e.stopPropagation();
+        });
+        
+        document.addEventListener('click', function (e) {
+            const isClickInside = sidebar.contains(e.target) || toggleButton.contains(e.target);
+            if (!isClickInside) {
+                sidebar.classList.add('-translate-x-full');
+            }
+        });
+    });
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const links = document.querySelectorAll('a[href^="#"]');
+    
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+    
+  </script>
+</body>
+</html>
